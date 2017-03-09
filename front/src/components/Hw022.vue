@@ -1,26 +1,21 @@
 <template>
-  <div class="heading form-group">
-    <h1>Hello {{ name }}</h1>
-    <label for="idName">Enter your name:</label>
+  <div id="hw022" class="heading form-group">
+    <h1 v-if="gender=='male'">안녕하세요 {{ name }}씨, 당신은 남자이군요.</h1>
+    <h1 v-else>안녕하세요 {{ name }}씨, 당신은 여자이군요.</h1>
+    <label for="idGender">Enter your gender:</label>
+    <input id="idGender" class="form-control" v-model="gender">
+	<label for="idName">Enter your name:</label>
     <input id="idName" class="form-control" v-model="name">
-    <button type="button" class="btn btn-primary" autocomplate="off" data-loading-text="jquery with bootstrap" @click="clickBtn">asdfasdf button</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'heading',
+  name: 'hw022',
   data () {
     return {
-      name: '이희원'
-    }
-  },
-  methods: {
-    clickBtn (event) {
-      $(event.target).button('loading')
-      setTimeout(function () {
-        $(event.target).button('reset')
-      }, 1000)
+      name: '이희원',
+      gender: 'male'
     }
   }
 }
@@ -33,19 +28,5 @@ div {
 }
 h1, h2 {
   font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
 }
 </style>

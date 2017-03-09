@@ -6,6 +6,8 @@ Vue.use(Router)
 
 import Hw010 from '@/components/Hw010'
 import Hw022 from '@/components/Hw022'
+import Hw038 from '@/components/Hw038'
+import Hw057 from '@/components/Hw057'
 import NotFound from '@/components/NotFound'
 
 export default new Router({
@@ -25,6 +27,16 @@ export default new Router({
       path: '/hw022',
       name: 'hw022_heading',
       component: Hw022
+    },
+    {
+      path: '/hw038',
+      name: 'hw038_heading',
+      component: Hw038
+    },
+    {
+      path: '/hw057',
+      name: 'hw057_heading',
+      component: Hw057
     },
     {
       path: '*',
