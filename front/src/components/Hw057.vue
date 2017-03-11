@@ -7,7 +7,7 @@
       </li>
     </ul>
     <input v-model="cmd" @keyup.enter="command">
-	<br>
+    <br>
     Our mayor is {{mayor}}!
   </div>
 </template>
@@ -17,8 +17,9 @@ export default {
   name: 'hw038',
   data () {
     return {
+      mayor: '',
       cmd: '',
-      candidates: [
+      defaults: [
         {
           name: 'aaa',
           score: 0
@@ -31,22 +32,26 @@ export default {
           name: 'ccc',
           score: 0
         }
-      ]
+      ],
+      candidates: []
+    }
+  },
+  created () {
+    this.candidates = this.defaults
+  },
+  methods: {
+    command () {
+      if (this.cmd === 'reset') {
+        this.candidates = this.defaults
+      } else {
+        this.candidates.push({
+          name: this.cmd,
+          score: 0
+        })
+      }
+      this.cmd = ''
     }
   }
-  // },
-  // methods () {
-  //   return {
-  //     command: function () {
-  //       switch (this.cmd) {
-  //         case 'reset' :
-  //           this.candidates = []
-  //           break
-  //         default:
-  //       }
-  //     }
-  //   }
-  // }
 }
 </script>
 
