@@ -37,12 +37,12 @@ export default {
     }
   },
   created () {
-    this.candidates = this.defaults
+    this.candidates = this.defaults.slice()
   },
   methods: {
     command () {
       if (this.cmd === 'reset') {
-        this.candidates = this.defaults
+        this.candidates = this.defaults.slice()
       } else {
         this.candidates.push({
           name: this.cmd,
