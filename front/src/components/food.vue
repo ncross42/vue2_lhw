@@ -6,19 +6,29 @@
 </template>
 
 <script>
+// Import the EventBus we just created.
+import { EventBus } from '../event-bus.js'
+
 export default {
   template: '#food',
   props: ['name'],
-  data () {
-    return {
-      votes: 0
-    }
+  data: () => ({
+    votes: 0
+  }),
+  created () {
+    EventBus.$on('reset', function () {
+      this.reset()
+    }.bind(this))
   },
   methods: {
-    vote: function (event) {
+    vote (event) {
       // console.log(event)
       this.votes++
       this.$emit('voted', event.srcElement.textContent)
+      // EventBus.$emit('voted', event.srcElement.textContent)
+    },
+    reset () {
+      this.votes = 0
     }
   }
 }

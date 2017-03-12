@@ -1,9 +1,13 @@
 <template>
   <div id="p113" class="container">
-    <h1>Emit and Listen</h1>
+    <h1>
+      Emit and Listen
+      <button class="btn btn-danger pull-right" @click="reset">Reset votes</button>
+    </h1>
     <p style="font-size: 140px;">
       {{ votes }}
     </p>
+    <hr>
     <!--button class="btn btn-primary" @click="vote">Vote</button-->
     <div class="row">
       <food @voted="countVote" name="Cheeseburger"></food>
@@ -19,18 +23,18 @@
 
 <script>
 import food from './food'
+// Import the EventBus we just created.
+import { EventBus } from '../event-bus.js'
 
 export default {
   name: 'p113',
   components: {
     'food': food
   },
-  data () {
-    return {
-      votes: 0,
-      logs: []
-    }
-  },
+  data: () => ({
+    votes: 0,
+    logs: []
+  }),
   // created () {
   //   this.$on('voted', function (button) {
   //     this.votes++
@@ -40,9 +44,14 @@ export default {
     // vote: function (writer) {
     //   this.$emit('voted')
     // }
-    countVote: function (food) {
+    countVote (food) {
       this.votes++
       this.logs.push(`"${food}" received a vote.`)
+    },
+    reset () {
+      this.votes = 0
+      this.logs = []
+      EventBus.$emit('reset')
     }
   }
 }
