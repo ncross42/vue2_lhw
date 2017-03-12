@@ -38,12 +38,12 @@ export default {
     }
   },
   created () {
-    this.candidates = this.defaults.slice()
+    this.candidates = _.cloneDeep(this.defaults)
   },
   methods: {
     command () {
       if (this.cmd === 'reset') {
-        this.candidates = this.defaults.slice()
+        this.candidates = _.cloneDeep(this.defaults)
       } else {
         this.candidates.push({
           name: this.cmd,

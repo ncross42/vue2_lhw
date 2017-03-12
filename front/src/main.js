@@ -9,6 +9,7 @@ import 'expose-loader?$!expose-loader?jQuery!jquery'
 // import $ from 'jquery';
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'expose-loader?_!expose-loader?lodash'
 
 Vue.config.productionTip = false
 
