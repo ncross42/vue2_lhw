@@ -18,21 +18,11 @@ export default {
   name: 'hw057',
   data () {
     return {
-      // mayor: '',
       cmd: '',
       defaults: [
-        {
-          name: 'aaa',
-          score: 0
-        },
-        {
-          name: 'bbb',
-          score: 0
-        },
-        {
-          name: 'ccc',
-          score: 0
-        }
+        { name: 'aaa', score: 0 },
+        { name: 'bbb', score: 0 },
+        { name: 'ccc', score: 0 }
       ],
       candidates: []
     }
