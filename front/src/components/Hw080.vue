@@ -1,8 +1,15 @@
 <template>
-  <div id="hw057" class="heading form-group">
+  <div id="hw080" class="heading form-group">
     <h1>Votes of Vue</h1>
     <ul class="list-group">
       <li class="list-group-item" v-for="(val, key) in candidates">
+        {{val.name}} : {{val.score}}
+        <button @click="upvote(key)">Upvote!</button>
+      </li>
+    </ul>
+    <h1>popular list</h1>
+    <ul class="list-group">
+      <li class="list-group-item" v-for="(val, key) in popular">
         {{val.name}} : {{val.score}}
         <button @click="upvote(key)">Upvote!</button>
       </li>
@@ -15,7 +22,7 @@
 
 <script>
 export default {
-  name: 'hw057',
+  name: 'hw080',
   data () {
     return {
       // mayor: '',
@@ -57,8 +64,12 @@ export default {
     }
   },
   computed: {
+    popular () {
+      return this.candidates.filter(one => {
+        return one.score > 3
+      })
+    },
     mayor () {
-      console.log(this.candidates.length)
       let topName = 'nobody'
       let topScore = 0
       this.candidates.forEach(one => {
@@ -66,7 +77,6 @@ export default {
           topName = one.name
           topScore = one.score
         }
-        console.log([topName, topScore, one.name, one.score])
       })
       return topName
     }

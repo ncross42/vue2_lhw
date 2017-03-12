@@ -8,6 +8,7 @@ import Hw010 from '@/components/Hw010'
 import Hw022 from '@/components/Hw022'
 import Hw038 from '@/components/Hw038'
 import Hw057 from '@/components/Hw057'
+import Hw080 from '@/components/Hw080'
 import NotFound from '@/components/NotFound'
 
 export default new Router({
@@ -20,23 +21,23 @@ export default new Router({
     },
     {
       path: '/hw010',
-      name: 'hw010_heading',
       component: Hw010
     },
     {
       path: '/hw022',
-      name: 'hw022_heading',
       component: Hw022
     },
     {
       path: '/hw038',
-      name: 'hw038_heading',
       component: Hw038
     },
     {
       path: '/hw057',
-      name: 'hw057_heading',
       component: Hw057
+    },
+    {
+      path: '/hw080',
+      component: Hw080
     },
     {
       path: '*',
