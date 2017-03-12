@@ -2,13 +2,14 @@
   <div id="hw022" class="heading form-group">
     <h1>Votes of Vue</h1>
     <ul class="list-group">
-      <li class="list-group-item" v-for="(v, k, i) in candidates">
-        {{v.name}} : {{v.score}}
+      <li class="list-group-item" v-for="(val, key) in candidates">
+        {{val.name}} : {{val.score}}
+        <button @click="upvote(key)">Upvote!</button>
       </li>
     </ul>
     <input v-model="cmd" @keyup.enter="command">
     <br>
-    Our mayor is {{mayor}}!
+    Our mayor : <span class="mayor">{{mayor}}!</span>
   </div>
 </template>
 
@@ -17,7 +18,7 @@ export default {
   name: 'hw038',
   data () {
     return {
-      mayor: '',
+      // mayor: '',
       cmd: '',
       defaults: [
         {
@@ -50,6 +51,24 @@ export default {
         })
       }
       this.cmd = ''
+    },
+    upvote (key) {
+      this.candidates[key].score++
+    }
+  },
+  computed: {
+    mayor () {
+      console.log(this.candidates.length)
+      let topName = 'nobody'
+      let topScore = 0
+      this.candidates.forEach(one => {
+        if (topScore < one.score) {
+          topName = one.name
+          topScore = one.score
+        }
+        console.log([topName, topScore, one.name, one.score])
+      })
+      return topName
     }
   }
 }
@@ -62,5 +81,9 @@ div {
 }
 h1, h2 {
   font-weight: normal;
+}
+.mayor {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 </style>
