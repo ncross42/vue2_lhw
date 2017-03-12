@@ -1,5 +1,5 @@
 <template>
-  <div id="hw022" class="heading form-group">
+  <div id="hw022" class="form-group">
     <h1 v-if="gender=='male'">안녕하세요 {{ name }}씨, 당신은 남자이군요.</h1>
     <h1 v-else>안녕하세요 {{ name }}씨, 당신은 여자이군요.</h1>
     <label for="idGender">Enter your gender:</label>

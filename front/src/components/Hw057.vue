@@ -1,5 +1,5 @@
 <template>
-  <div id="hw057" class="heading form-group">
+  <div id="hw057" class="form-group">
     <h1>Votes of Vue</h1>
     <ul class="list-group">
       <li class="list-group-item" v-for="(val, key) in candidates">

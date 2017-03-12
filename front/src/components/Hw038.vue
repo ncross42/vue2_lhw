@@ -1,5 +1,5 @@
 <template>
-  <div id="hw022" class="heading form-group">
+  <div id="hw022" class="form-group">
     <h1>Let's hear some stories</h1>
     <ul class="list-group">
       <li class="list-group-item" v-for="(v,k,i) in story">

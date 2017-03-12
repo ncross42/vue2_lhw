@@ -10,6 +10,8 @@ import Hw038 from '@/components/Hw038'
 import Hw057 from '@/components/Hw057'
 import Hw080 from '@/components/Hw080'
 import Hw101 from '@/components/Hw101'
+import p113 from '@/components/p113'
+// import food from '@/components/food'
 import NotFound from '@/components/NotFound'
 
 export default new Router({
@@ -22,6 +24,7 @@ export default new Router({
     { path: '/hw057', component: Hw057 },
     { path: '/hw080', component: Hw080 },
     { path: '/hw101', component: Hw101 },
+    { path: '/p113', component: p113 },
     { path: '*', component: NotFound }
   ]
 })
