@@ -9,39 +9,19 @@ import Hw022 from '@/components/Hw022'
 import Hw038 from '@/components/Hw038'
 import Hw057 from '@/components/Hw057'
 import Hw080 from '@/components/Hw080'
+import Hw101 from '@/components/Hw101'
 import NotFound from '@/components/NotFound'
 
 export default new Router({
   mode: 'history',
   routes: [
-    {
-      path: '/',
-      name: 'Hello',
-      component: Hello
-    },
-    {
-      path: '/hw010',
-      component: Hw010
-    },
-    {
-      path: '/hw022',
-      component: Hw022
-    },
-    {
-      path: '/hw038',
-      component: Hw038
-    },
-    {
-      path: '/hw057',
-      component: Hw057
-    },
-    {
-      path: '/hw080',
-      component: Hw080
-    },
-    {
-      path: '*',
-      component: NotFound
-    }
+    { path: '/', name: 'Hello', component: Hello },
+    { path: '/hw010', component: Hw010 },
+    { path: '/hw022', component: Hw022 },
+    { path: '/hw038', component: Hw038 },
+    { path: '/hw057', component: Hw057 },
+    { path: '/hw080', component: Hw080 },
+    { path: '/hw101', component: Hw101 },
+    { path: '*', component: NotFound }
   ]
 })
