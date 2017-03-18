@@ -1,0 +1,56 @@
+<template>
+  <div class="container">
+    <h1>Let's hear some stories!</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Plot</th>
+          <th>Writer</th>
+          <th>Upvotes</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <story v-for="story in stories" :story="story" :key="story.id">
+        </story>
+      </tbody>
+    </table>
+    <pre>{{ $data }}</pre>
+  </div>
+</template>
+
+<script>
+import story from './story'
+
+export default {
+  components: {
+    'story': story
+  },
+  data () {
+    return {
+      stories: [
+        { writer: 'asdf', plot: 'qwer', upvotes: 10 }
+      ]
+    }
+  },
+  mounted () {
+    // this.$nextTick(function () {
+    $.get('http://192.168.56.101:3000/api/stories', data => {
+      this.stories = data
+    })
+    // $.get('http://192.168.56.101:3000/api/stories', $.proxy(function (data) {
+    //   this.stories = data
+    // }).bind(this))
+    // let self = this
+    // $.get('http://192.168.56.101:3000/api/stories', function (data) {
+    //   self.stories = data
+    // })
+    // })
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
+</style>

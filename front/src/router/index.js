@@ -13,6 +13,7 @@ import Hw101 from '@/components/Hw101'
 import p113 from '@/components/p113'
 import p127 from '@/components/p127'
 import p135 from '@/components/p135'
+import p149 from '@/components/p149'
 // import food from '@/components/food'
 import NotFound from '@/components/NotFound'
 
@@ -29,6 +30,7 @@ export default new Router({
     { path: '/p113', component: p113 },
     { path: '/p127', component: p127 },
     { path: '/p135', component: p135 },
+    { path: '/p149', component: p149 },
     { path: '*', component: NotFound }
   ]
 })
