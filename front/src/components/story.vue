@@ -6,9 +6,8 @@
     <td> {{story.upvotes}} </td>
     <td>
       <div class="btn-group">
-        <button @click="upvoteStory(story)" class="btn btn-primary">
-          Upvote
-        </button>
+        <button @click="upvoteStory(story)" class="btn btn-primary"> Upvote </button>
+        <button @click="deleteStory(story)" class="btn btn-danger"> Delete </button>
       </div>
     </td>
   </tr>
@@ -26,13 +25,23 @@ export default {
         type: 'PATCH',
         data: story
       })
+    },
+    deleteStory (story, event) {
+      this.$emit('deleteStory', story)
+      $.ajax({
+        url: 'http://192.168.56.101:3000/api/stories/' + story.id,
+        type: 'DELETE'
+      })
     }
   }
 }
 </script>
 
-<style scoped>
-.list-group-item {
-
+<style lang="scss" scoped>
+.btn-group {
+  min-width: 10em;
+  .btn-primary {
+    margin-right: 0.2em;
+  }
 }
 </style>

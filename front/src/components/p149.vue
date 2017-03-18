@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <story v-for="story in stories" :story="story" :key="story.id">
+        <story v-for="story in stories" :story="story" :key="story.id" @deleteStory="deleteStory" >
         </story>
       </tbody>
     </table>
@@ -47,10 +47,21 @@ export default {
     //   self.stories = data
     // })
     // })
+  },
+  methods: {
+    deleteStory (story) {
+      // story 찾기
+      var index = this.stories.indexOf(story)
+      // 삭제
+      this.stories.splice(index, 1)
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+th {
+  text-align: center;
+}
 </style>
