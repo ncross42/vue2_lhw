@@ -28,7 +28,12 @@ export default {
       this.$http.patch('http://192.168.56.101:3000/api/stories/' + story.id, story)
     },
     deleteStory (story, event) {
-      this.$emit('deleteStory', story)
+      // this.$emit('deleteStory', story)
+      // story 찾기
+      var index = this.$parent.stories.indexOf(story)
+      // 삭제
+      this.$parent.stories.splice(index, 1)
+
       // $.ajax({
       //   url: 'http://192.168.56.101:3000/api/stories/' + story.id,
       //   type: 'DELETE'

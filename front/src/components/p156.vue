@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <story v-for="story in stories" :story="story" :key="story.id" @deleteStory="deleteStory" >
+        <story v-for="story in stories" :story="story" :key="story.id" >
         </story>
       </tbody>
     </table>
@@ -41,12 +41,12 @@ export default {
     })
   },
   methods: {
-    deleteStory (story) {
-      // story 찾기
-      var index = this.stories.indexOf(story)
-      // 삭제
-      this.stories.splice(index, 1)
-    }
+    // deleteStory (story) {
+    //   // story 찾기
+    //   var index = this.stories.indexOf(story)
+    //   // 삭제
+    //   this.stories.splice(index, 1)
+    // }
   }
 }
 </script>
