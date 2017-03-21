@@ -20,18 +20,20 @@ export default {
   methods: {
     upvoteStory (story) {
       story.upvotes++
-      $.ajax({
-        url: 'http://192.168.56.101:3000/api/stories/' + story.id,
-        type: 'PATCH',
-        data: story
-      })
+      // $.ajax({
+      //   url: 'http://192.168.56.101:3000/api/stories/' + story.id,
+      //   type: 'PATCH',
+      //   data: story
+      // })
+      this.$http.patch('http://192.168.56.101:3000/api/stories/' + story.id, story)
     },
     deleteStory (story, event) {
       this.$emit('deleteStory', story)
-      $.ajax({
-        url: 'http://192.168.56.101:3000/api/stories/' + story.id,
-        type: 'DELETE'
-      })
+      // $.ajax({
+      //   url: 'http://192.168.56.101:3000/api/stories/' + story.id,
+      //   type: 'DELETE'
+      // })
+      this.$http.delete('http://192.168.56.101:3000/api/stories/' + story.id)
     }
   }
 }

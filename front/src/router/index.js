@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Resource from 'vue-resource'
 import Hello from '@/components/Hello'
 
 Vue.use(Router)
+Vue.use(Resource)
 
 import Hw010 from '@/components/Hw010'
 import Hw022 from '@/components/Hw022'
@@ -14,6 +16,7 @@ import p113 from '@/components/p113'
 import p127 from '@/components/p127'
 import p135 from '@/components/p135'
 import p149 from '@/components/p149'
+import p156 from '@/components/p156'
 // import food from '@/components/food'
 import NotFound from '@/components/NotFound'
 
@@ -31,6 +34,7 @@ export default new Router({
     { path: '/p127', component: p127 },
     { path: '/p135', component: p135 },
     { path: '/p149', component: p149 },
+    { path: '/p156', component: p156 },
     { path: '*', component: NotFound }
   ]
 })
