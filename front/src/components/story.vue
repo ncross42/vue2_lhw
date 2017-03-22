@@ -1,12 +1,27 @@
 <template id="template-story-raw">
   <tr>
     <td> {{story.id}} </td>
-    <td> <span> {{story.plot}} </span> </td>
-    <td> <span> {{story.writer}} </span> </td>
-    <td> {{story.upvotes}} </td>
     <td>
-      <div class="btn-group">
-        <button @click="upvoteStory(story)" class="btn btn-primary"> Upvote </button>
+      <input v-if="story.editing" v-model="story.plot" class="form-control"></input>
+      <span v-else> {{story.plot}} </span>
+    </td>
+    <td>
+      <input v-if="story.editing" v-model="story.writer" class="form-control"></input>
+      <span v-else> {{story.writer}} </span>
+    </td>
+    <td> {{story.upvotes}} </td>
+    <td class="actions">
+      <div v-if="story.editing === undefined" class="btn-group">
+        <button @click="voteStory(story)" class="btn btn-primary"> Vote </button>
+        <button @click="deleteStory(story)" class="btn btn-danger"> Delete </button>
+      </div>
+      <div v-else-if="story.editing" class="btn-group">
+        <button @click="updateStory(story)" class="btn btn-primary"> Update Story </button>
+        <button @click="story.editing = false" class="btn btn-default"> Cancel </button>
+      </div>
+      <div v-else class="btn-group">
+        <button @click="voteStory(story)" class="btn btn-primary"> Upvote </button>
+        <button @click="story.editing = true" class="btn btn-default"> Edit </button>
         <button @click="deleteStory(story)" class="btn btn-danger"> Delete </button>
       </div>
     </td>
@@ -18,26 +33,21 @@ export default {
   template: '#template-story-raw',
   props: ['story'],
   methods: {
-    upvoteStory (story) {
+    createStory (story) {
+
+    },
+    voteStory (story) {
       story.upvotes++
-      // $.ajax({
-      //   url: 'http://192.168.56.101:3000/api/stories/' + story.id,
-      //   type: 'PATCH',
-      //   data: story
-      // })
       this.$http.patch('http://192.168.56.101:3000/api/stories/' + story.id, story)
     },
+    updateStory (story) {
+      this.$http.patch('http://192.168.56.101:3000/api/stories/' + story.id, story)
+      story.editing = false
+    },
     deleteStory (story, event) {
-      // this.$emit('deleteStory', story)
-      // story 찾기
+      // 부모 story 찾아서 삭제
       var index = this.$parent.stories.indexOf(story)
-      // 삭제
       this.$parent.stories.splice(index, 1)
-
-      // $.ajax({
-      //   url: 'http://192.168.56.101:3000/api/stories/' + story.id,
-      //   type: 'DELETE'
-      // })
       this.$http.delete('http://192.168.56.101:3000/api/stories/' + story.id)
     }
   }
@@ -45,10 +55,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn-group {
-  min-width: 10em;
-  .btn-primary {
-    margin-right: 0.2em;
+td {
+  padding: 0;
+  &.actions {
+    padding: 0;
+    vertical-align: middle;
+    min-width: 14em;
+    .btn-group {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      .btn {
+        margin-right: 0.2em;
+      }
+    }
   }
 }
 </style>
