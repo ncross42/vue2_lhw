@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import axios from 'axios'
 import Hello from '@/components/Hello'
 
 Vue.use(Router)
+// import Resource from 'vue-resource'
+// Vue.use(Resource)
+import axios from 'axios'
 Vue.prototype.$http = axios
 
 import Hw010 from '@/components/Hw010'
