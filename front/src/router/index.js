@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Resource from 'vue-resource'
+import axios from 'axios'
 import Hello from '@/components/Hello'
 
 Vue.use(Router)
-Vue.use(Resource)
+Vue.prototype.$http = axios
 
 import Hw010 from '@/components/Hw010'
 import Hw022 from '@/components/Hw022'
@@ -19,6 +19,7 @@ import p149 from '@/components/p149'
 import p156 from '@/components/p156'
 import p170 from '@/components/p170'
 import p182 from '@/components/p182'
+import p263 from '@/components/p263'
 // import food from '@/components/food'
 import NotFound from '@/components/NotFound'
 
@@ -39,6 +40,7 @@ export default new Router({
     { path: '/p156', component: p156 },
     { path: '/p170', component: p170 },
     { path: '/p182', component: p182 },
+    { path: '/p263', component: p263 },
     { path: '*', component: NotFound }
   ]
 })
