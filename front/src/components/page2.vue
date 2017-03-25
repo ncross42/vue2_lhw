@@ -1,5 +1,20 @@
 <template>
-  <div class="ui pagination menu" :class="className" v-show="isShow">
+  <ul class="pagination" :class="className" v-show="isShow">
+    <li v-if="isShowEdge" :class="{disabled: currentPage === 1}">
+      <a href="#" @click.prevent="onChange(1)" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li v-for="page in pages" :class="{active: page === currentPage}">
+      <a href="#" @click.prevent="onChange(page)">{{page}}</a>
+    </li>
+    <li v-if="isShowEdge" :class="{disabled: currentPage === totalPages}">
+      <a href="#" @click.prevent="onChange(totalPages)" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+  <!--<div class="ui pagination menu" :class="className" v-show="isShow">
     <a class="item" v-if="isShowEdge" :class="{disabled: currentPage === 1}" @click.prevent="onChange(1)">
       {{previousText}}
     </a>
@@ -9,7 +24,7 @@
     <a class="item" v-if="isShowEdge" :class="{disabled: currentPage === totalPages}" @click.prevent="onChange(totalPages)">
       {{nextText}}
     </a>
-  </div>
+  </div>-->
 </template>
 
 <script>
@@ -29,7 +44,7 @@ export default {
     className () {
       let cx = []
       if (this.floated) {
-        cx.push('right', 'floated')
+        cx.push('pull-right', 'floated')
       }
       return cx
     },
