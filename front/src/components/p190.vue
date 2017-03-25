@@ -90,7 +90,6 @@ export default {
 
         this.total = response.data.total
         this.currentPage = response.data.current_page
-        
       })
     },
     createStory () {
