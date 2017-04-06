@@ -27,11 +27,16 @@ import p190 from '@/components/p190'
 import p263 from '@/components/p263'
 // import food from '@/components/food'
 import NotFound from '@/components/NotFound'
+import Login from '@/components/Login'
+import StoriesPage from '@/components/StoriesPage.vue'
+import StoriesAll from '@/components/StoriesAll.vue'
+import StoriesEdit from '@/components/StoriesEdit.vue'
 
 export default new Router({
   mode: 'history',
+  // base: '/asd',
   routes: [
-    { path: '/', name: 'Hello', component: Hello },
+    { path: '/', component: Hello, name: 'hello' },
     { path: '/hw010', component: Hw010 },
     { path: '/hw022', component: Hw022 },
     { path: '/hw038', component: Hw038 },
@@ -48,6 +53,15 @@ export default new Router({
     { path: '/p189', component: p189 },
     { path: '/p190', component: p190 },
     { path: '/p263', component: p263 },
+    { path: '/login', component: Login, name: 'login' },
+    {
+      path: '/stories',
+      component: StoriesPage,
+      children: [
+        { path: '', name: 'stories.all', component: StoriesAll },
+        { path: ':id/edit', name: 'stories.edit', component: StoriesEdit }
+      ]
+    },
     { path: '*', component: NotFound }
   ]
 })
