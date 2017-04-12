@@ -32,11 +32,11 @@ import StoriesPage from '@/components/StoriesPage.vue'
 import StoriesAll from '@/components/StoriesAll.vue'
 import StoriesEdit from '@/components/StoriesEdit.vue'
 
-export default new Router({
+const ROUTER_INSTANCE = new Router({
   mode: 'history',
   // base: '/asd',
   routes: [
-    { path: '/', component: Hello, name: 'hello' },
+    { path: '/', component: Hello, name: 'hello', meta: {title: 'hhheeelllooo'} },
     { path: '/hw010', component: Hw010 },
     { path: '/hw022', component: Hw022 },
     { path: '/hw038', component: Hw038 },
@@ -53,15 +53,25 @@ export default new Router({
     { path: '/p189', component: p189 },
     { path: '/p190', component: p190 },
     { path: '/p263', component: p263 },
-    { path: '/login', component: Login, name: 'login' },
+    { path: '/login', component: Login, name: 'login', meta: {title: 'lllogin'} },
     {
       path: '/stories',
       component: StoriesPage,
       children: [
-        { path: '', name: 'stories.all', component: StoriesAll },
-        { path: ':id/edit', name: 'stories.edit', component: StoriesEdit }
+        { path: '', name: 'stories.all', component: StoriesAll, meta: {title: 'all stories'} },
+        { path: ':id/edit', name: 'stories.edit', component: StoriesEdit, meta: {title: 'edit stories'} }
       ]
     },
     { path: '*', component: NotFound }
   ]
 })
+
+console.log(ROUTER_INSTANCE)
+
+ROUTER_INSTANCE.beforeEach((to, from, next) => {
+  document.title = to.meta.title || 'vue2_lhw'
+  console.log(to.meta)  // this lets you check what else is available to you here
+  next()
+})
+
+export default ROUTER_INSTANCE
