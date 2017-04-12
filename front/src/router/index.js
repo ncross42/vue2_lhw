@@ -34,7 +34,7 @@ import StoriesEdit from '@/components/StoriesEdit.vue'
 
 const ROUTER_INSTANCE = new Router({
   mode: 'history',
-  // base: '/asd',
+  base: '/vue2_lhw',
   routes: [
     { path: '/', component: Hello, name: 'hello', meta: {title: 'hhheeelllooo'} },
     { path: '/hw010', component: Hw010 },
@@ -70,8 +70,10 @@ console.log(ROUTER_INSTANCE)
 
 ROUTER_INSTANCE.beforeEach((to, from, next) => {
   document.title = to.meta.title || 'vue2_lhw'
-  console.log(to.meta)  // this lets you check what else is available to you here
   next()
 })
+
+import VueAnalytics from 'vue-analytics'
+Vue.use(VueAnalytics, { id: 'UA-97241089-1', ROUTER_INSTANCE })
 
 export default ROUTER_INSTANCE
