@@ -37,32 +37,33 @@ const ROUTER_INSTANCE = new Router({
   base: '/vue2_lhw',
   routes: [
     { path: '/', component: Hello, name: 'hello', meta: {title: 'hhheeelllooo'} },
-    { path: '/hw010', component: Hw010 },
-    { path: '/hw022', component: Hw022 },
-    { path: '/hw038', component: Hw038 },
-    { path: '/hw057', component: Hw057 },
-    { path: '/hw080', component: Hw080 },
-    { path: '/hw101', component: Hw101 },
-    { path: '/p113', component: p113 },
-    { path: '/p127', component: p127 },
-    { path: '/p135', component: p135 },
-    { path: '/p149', component: p149 },
-    { path: '/p156', component: p156 },
-    { path: '/p170', component: p170 },
-    { path: '/p182', component: p182 },
-    { path: '/p189', component: p189 },
-    { path: '/p190', component: p190 },
-    { path: '/p263', component: p263 },
+    { path: '/hw010', component: Hw010, name: 'hw010' },
+    { path: '/hw022', component: Hw022, name: 'hw022' },
+    { path: '/hw038', component: Hw038, name: 'hw038' },
+    { path: '/hw057', component: Hw057, name: 'hw057' },
+    { path: '/hw080', component: Hw080, name: 'hw080' },
+    { path: '/hw101', component: Hw101, name: 'hw101' },
+    { path: '/p113', component: p113, name: 'p113' },
+    { path: '/p127', component: p127, name: 'p127' },
+    { path: '/p135', component: p135, name: 'p135' },
+    { path: '/p149', component: p149, name: 'p149' },
+    { path: '/p156', component: p156, name: 'p156' },
+    { path: '/p170', component: p170, name: 'p170' },
+    { path: '/p182', component: p182, name: 'p182' },
+    { path: '/p189', component: p189, name: 'p189' },
+    { path: '/p190', component: p190, name: 'p190' },
+    { path: '/p263', component: p263, name: 'p263' },
     { path: '/login', component: Login, name: 'login', meta: {title: 'lllogin'} },
     {
       path: '/stories',
+      name: 'stories',
       component: StoriesPage,
       children: [
-        { path: '', name: 'stories.all', component: StoriesAll, meta: {title: 'all stories'} },
-        { path: ':id/edit', name: 'stories.edit', component: StoriesEdit, meta: {title: 'edit stories'} }
+        { path: '', component: StoriesAll, name: 'stories.all', meta: {title: 'all stories'} },
+        { path: ':id/edit', component: StoriesEdit, name: 'stories.edit', meta: {title: 'edit stories'} }
       ]
     },
-    { path: '*', component: NotFound }
+    { path: '*', component: NotFound, name: 'NotFound' }
   ]
 })
 
