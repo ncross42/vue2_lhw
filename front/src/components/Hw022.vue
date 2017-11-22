@@ -4,7 +4,7 @@
     <h1 v-else>안녕하세요 {{ name }}씨, 당신은 여자이군요.</h1>
     <label for="idGender">Enter your gender:</label>
     <input id="idGender" class="form-control" v-model="gender">
-	<label for="idName">Enter your name:</label>
+    <label for="idName">Enter your name:</label>
     <input id="idName" class="form-control" v-model="name">
   </div>
 </template>

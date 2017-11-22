@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>Welcome to Routing!</h1>
+    <!-- <img src="./assets/logo.png">
+    <h1>Welcome to Routing!</h1> -->
     <router-link :to="{ name: 'hello'}" exact>Hello</router-link>
     <router-link :to="{ name: 'login'}">Login</router-link>
     <router-link :to="{ name: 'stories.all'}">Stories</router-link>

@@ -4,11 +4,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Plot</th>
-          <th>Writer</th>
-          <th>Upvotes</th>
-          <th>Actions</th>
+          <th>#</th> <th>Plot</th> <th>Writer</th> <th>Upvotes</th> <th>Actions</th>
         </tr>
       </thead>
       <tbody>
