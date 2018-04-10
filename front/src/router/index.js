@@ -9,12 +9,12 @@ Vue.prototype.$http = axios
 // import {VuePagination} from 'vue-pagination-2'
 // Vue.use(VuePagination)
 
-import Hw010 from '@/components/Hw010'
-import Hw022 from '@/components/Hw022'
-import Hw038 from '@/components/Hw038'
-import Hw057 from '@/components/Hw057'
-import Hw080 from '@/components/Hw080'
-import Hw101 from '@/components/Hw101'
+import p010 from '@/components/p010'
+import p022 from '@/components/p022'
+import p038 from '@/components/p038'
+import p057 from '@/components/p057'
+import p080 from '@/components/p080'
+import p101 from '@/components/p101'
 import p113 from '@/components/p113'
 import p127 from '@/components/p127'
 import p135 from '@/components/p135'
@@ -34,15 +34,15 @@ import StoriesEdit from '@/components/StoriesEdit.vue'
 
 const ROUTER_INSTANCE = new Router({
   mode: 'history',
-  base: '/vue2_lhw',
+  base: '/vue2_lp',
   routes: [
     { path: '/', component: Hello, name: 'hello', meta: {title: 'hhheeelllooo'} },
-    { path: '/hw010', component: Hw010, name: 'hw010' },
-    { path: '/hw022', component: Hw022, name: 'hw022' },
-    { path: '/hw038', component: Hw038, name: 'hw038' },
-    { path: '/hw057', component: Hw057, name: 'hw057' },
-    { path: '/hw080', component: Hw080, name: 'hw080' },
-    { path: '/hw101', component: Hw101, name: 'hw101' },
+    { path: '/p010', component: p010, name: 'p010' },
+    { path: '/p022', component: p022, name: 'p022' },
+    { path: '/p038', component: p038, name: 'p038' },
+    { path: '/p057', component: p057, name: 'p057' },
+    { path: '/p080', component: p080, name: 'p080' },
+    { path: '/p101', component: p101, name: 'p101' },
     { path: '/p113', component: p113, name: 'p113' },
     { path: '/p127', component: p127, name: 'p127' },
     { path: '/p135', component: p135, name: 'p135' },
@@ -70,7 +70,7 @@ const ROUTER_INSTANCE = new Router({
 console.log(ROUTER_INSTANCE)
 
 ROUTER_INSTANCE.beforeEach((to, from, next) => {
-  document.title = to.meta.title || 'vue2_lhw'
+  document.title = to.meta.title || 'vue2_lp'
   next()
 })
 
