@@ -52,9 +52,6 @@ export default {
     },
     upvote (key) {
       this.candidates[key].score++
-    },
-    setFavorite () {
-      this.favorite = this.story
     }
   },
   computed: {

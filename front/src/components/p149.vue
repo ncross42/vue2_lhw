@@ -27,13 +27,11 @@ export default {
   components: {
     'story': story
   },
-  data () {
-    return {
-      stories: [
-        { writer: 'asdf', plot: 'qwer', upvotes: 10 }
-      ]
-    }
-  },
+  data: () => ({
+    stories: [
+      { writer: 'asdf', plot: 'qwer', upvotes: 10 }
+    ]
+  }),
   mounted () {
     // this.$nextTick(function () {
     $.get('http://192.168.56.101:3000/api/stories', data => {
