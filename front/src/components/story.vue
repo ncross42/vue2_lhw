@@ -2,11 +2,11 @@
   <tr>
     <td> {{story.id}} </td>
     <td>
-      <input v-if="story.editing" v-model="story.plot" class="form-control"></input>
+      <input v-if="story.editing" v-model="story.plot" class="form-control">
       <span v-else> {{story.plot}} </span>
     </td>
     <td>
-      <input v-if="story.editing" v-model="story.writer" class="form-control"></input>
+      <input v-if="story.editing" v-model="story.writer" class="form-control">
       <span v-else> {{story.writer}} </span>
     </td>
     <td> {{story.upvotes}} </td>
@@ -38,17 +38,17 @@ export default {
     },
     voteStory (story) {
       story.upvotes++
-      this.$http.patch('http://192.168.56.101:3000/api/stories/' + story.id, story)
+      this.$http.patch('http://localhost:3000/api/stories/' + story.id, story)
     },
     updateStory (story) {
-      this.$http.patch('http://192.168.56.101:3000/api/stories/' + story.id, story)
+      this.$http.patch('http://localhost:3000/api/stories/' + story.id, story)
       story.editing = false
     },
     deleteStory (story, event) {
       // 부모 story 찾아서 삭제
       var index = this.$parent.stories.indexOf(story)
       this.$parent.stories.splice(index, 1)
-      this.$http.delete('http://192.168.56.101:3000/api/stories/' + story.id)
+      this.$http.delete('http://localhost:3000/api/stories/' + story.id)
     }
   }
 }

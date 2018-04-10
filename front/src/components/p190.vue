@@ -68,7 +68,7 @@ export default {
       this.currentPage = page
     },
     fetchStories (pageUrl) {
-      this.$http.get(pageUrl || 'http://192.168.56.101:3001/api/stories')
+      this.$http.get(pageUrl || 'http://localhost:3001/api/stories')
       .then(response => {
         // console.log(response.data)
         // {
@@ -76,7 +76,7 @@ export default {
         //   data: Array[15]
         //   from: 1
         //   last_page: 14
-        //   next_page_url: "http://192.168.56.101:3001/api/stories?page=2"
+        //   next_page_url: "http://localhost:3001/api/stories?page=2"
         //   per_page: 15
         //   prev_page_url: null
         //   to: 15
@@ -94,7 +94,7 @@ export default {
     },
     createStory () {
       let newStory = { writer: this.newWriter, plot: this.newPlot, upvotes: 0 }
-      this.$http.post('http://192.168.56.101:3001/api/stories', newStory)
+      this.$http.post('http://localhost:3001/api/stories', newStory)
       .then(response => {
         newStory.id = response.data.id
         newStory.editing = false

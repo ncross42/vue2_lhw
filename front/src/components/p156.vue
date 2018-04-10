@@ -33,7 +33,7 @@ export default {
     ]
   }),
   mounted () {
-    this.$http.get('http://192.168.56.101:3000/api/stories')
+    this.$http.get('http://localhost:3000/api/stories')
     .then(response => {
       this.stories = response.data
     })

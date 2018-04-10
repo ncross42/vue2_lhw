@@ -51,7 +51,7 @@ export default {
     }
   },
   mounted () {
-    this.$http.get('http://192.168.56.101:3000/api/stories')
+    this.$http.get('http://localhost:3000/api/stories')
     .then(response => {
       var storiesReady = response.data.map(story => {
         story.editing = false
@@ -63,7 +63,7 @@ export default {
   methods: {
     createStory () {
       let newStory = { writer: this.newWriter, plot: this.newPlot, upvotes: 0 }
-      this.$http.post('http://192.168.56.101:3000/api/stories', newStory)
+      this.$http.post('http://localhost:3000/api/stories', newStory)
       .then(response => {
         newStory.id = response.data
         newStory.editing = false

@@ -30,14 +30,14 @@ export default {
   }),
   mounted () {
     // this.$nextTick(function () {
-    $.get('http://192.168.56.101:3000/api/stories', data => {
+    $.get('http://localhost:3000/api/stories', data => {
       this.stories = data
     })
-    // $.get('http://192.168.56.101:3000/api/stories', $.proxy(function (data) {
+    // $.get('http://localhost:3000/api/stories', $.proxy(function (data) {
     //   this.stories = data
     // }).bind(this))
     // let self = this
-    // $.get('http://192.168.56.101:3000/api/stories', function (data) {
+    // $.get('http://localhost:3000/api/stories', function (data) {
     //   self.stories = data
     // })
     // })

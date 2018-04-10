@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     fetchStories (pageUrl) {
-      this.$http.get(pageUrl || 'http://192.168.56.101:3001/api/stories')
+      this.$http.get(pageUrl || 'http://localhost:3001/api/stories')
       .then(response => {
         var storiesReady = response.data.data.map(story => {
           story.editing = false
@@ -83,7 +83,7 @@ export default {
     },
     createStory () {
       let newStory = { writer: this.newWriter, plot: this.newPlot, upvotes: 0 }
-      this.$http.post('http://192.168.56.101:3001/api/stories', newStory)
+      this.$http.post('http://localhost:3001/api/stories', newStory)
       .then(response => {
         newStory.id = response.data.id
         newStory.editing = false
