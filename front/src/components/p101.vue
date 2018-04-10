@@ -5,11 +5,12 @@
       <li class="list-group-item" v-for="(val, key) in candidates">
         {{val.name}} : {{val.score}}
         <button @click="upvote(key)">Upvote!</button>
+        <span v-show="val.score >= 5" class="glyphicon glyphicon-star popular pull-right"></span>
       </li>
     </ul>
     <h1>popular list</h1>
     <ul class="list-group">
-      <li class="list-group-item" v-for="(val, key) in popular">
+      <li class="list-group-item" v-for="(val, key) in listPopular">
         {{val.name}} : {{val.score}}
         <button @click="upvote(key)">Upvote!</button>
       </li>
@@ -22,7 +23,7 @@
 
 <script>
 export default {
-  name: 'hw080',
+  name: 'p101',
   data () {
     return {
       cmd: '',
@@ -51,10 +52,13 @@ export default {
     },
     upvote (key) {
       this.candidates[key].score++
+    },
+    setFavorite () {
+      this.favorite = this.story
     }
   },
   computed: {
-    popular () {
+    listPopular () {
       return this.candidates.filter(one => {
         return one.score > 3
       })
@@ -82,7 +86,10 @@ div {
 h1, h2 {
   font-weight: normal;
 }
-.mayor {
+.mayor { font-size: 1.5em;
+  font-weight: bold;
+}
+.popular {
   font-size: 1.5em;
   font-weight: bold;
 }

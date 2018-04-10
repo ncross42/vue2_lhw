@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'hw022',
+  name: 'p022',
   data () {
     return {
       name: '이희원',

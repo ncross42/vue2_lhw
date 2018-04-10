@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'hw038',
+  name: 'p038',
   data () {
     return {
       story: {

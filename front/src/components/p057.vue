@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'hw057',
+  name: 'p057',
   data () {
     return {
       cmd: '',

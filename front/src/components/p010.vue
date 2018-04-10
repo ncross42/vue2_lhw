@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'heading',
+  name: 'p010',
   data () {
     return {
       name: '이희원'
