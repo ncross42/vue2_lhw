@@ -2,7 +2,7 @@
   <div id="hw080" class="form-group">
     <h1>Votes of Vue</h1>
     <ul class="list-group">
-      <li class="list-group-item" v-for="(val, key) in candidates">
+      <li class="list-group-item" v-for="(val, key) in candidates" :key="key">
         {{val.name}} : {{val.score}}
         <button @click="upvote(key)">Upvote!</button>
         <span v-show="val.score >= 5" class="glyphicon glyphicon-star popular pull-right"></span>
@@ -10,7 +10,7 @@
     </ul>
     <h1>popular list</h1>
     <ul class="list-group">
-      <li class="list-group-item" v-for="(val, key) in listPopular">
+      <li class="list-group-item" v-for="(val, key) in listPopular" :key="key">
         {{val.name}} : {{val.score}}
         <button @click="upvote(key)">Upvote!</button>
       </li>

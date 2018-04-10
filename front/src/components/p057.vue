@@ -2,7 +2,7 @@
   <div id="hw057" class="form-group">
     <h1>Votes of Vue</h1>
     <ul class="list-group">
-      <li class="list-group-item" v-for="(val, key) in candidates">
+      <li class="list-group-item" v-for="(val, key) in candidates" :key="key">
         {{val.name}} : {{val.score}}
         <button @click="upvote(key)">Upvote!</button>
       </li>

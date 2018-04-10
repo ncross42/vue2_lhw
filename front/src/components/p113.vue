@@ -16,7 +16,7 @@
     </div>
     <h1>Logs:</h1>
     <ul class="list-group">
-      <li class="list-group-item" v-for="log in logs"> {{ log }} </li>
+      <li class="list-group-item" v-for="(log,k) in logs" :key="k"> {{ log }} </li>
     </ul>
   </div>
 </template>
