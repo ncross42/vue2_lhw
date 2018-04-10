@@ -2,6 +2,9 @@
 var path = require('path')
 
 module.exports = {
+  aliases: {
+    '@': path.resolve(__dirname, '../src/components'),
+  },
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),

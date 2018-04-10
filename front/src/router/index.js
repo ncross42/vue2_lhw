@@ -6,6 +6,11 @@ Vue.use(Router)
 import axios from 'axios'
 Vue.prototype.$http = axios
 
+// import food from '@/components/food'
+function load (component) {
+  // '@' is aliased to src/components
+  return () => import(`@/components/${component}.vue`)
+}
 // import {VuePagination} from 'vue-pagination-2'
 // Vue.use(VuePagination)
 
@@ -26,11 +31,11 @@ import p189 from '@/components/p189'
 import p190 from '@/components/p190'
 import p263 from '@/components/p263'
 // import food from '@/components/food'
-import NotFound from '@/components/NotFound'
+// import NotFound from '@/components/NotFound'
 import Login from '@/components/Login'
-import StoriesPage from '@/components/StoriesPage.vue'
-import StoriesAll from '@/components/StoriesAll.vue'
-import StoriesEdit from '@/components/StoriesEdit.vue'
+// import StoriesPage from '@/components/StoriesPage.vue'
+// import StoriesAll from '@/components/StoriesAll.vue'
+// import StoriesEdit from '@/components/StoriesEdit.vue'
 
 const ROUTER_INSTANCE = new Router({
   mode: 'history',
@@ -57,13 +62,13 @@ const ROUTER_INSTANCE = new Router({
     {
       path: '/stories',
       name: 'stories',
-      component: StoriesPage,
+      component: load('StoriesPage'),
       children: [
-        { path: '', component: StoriesAll, name: 'stories.all', meta: {title: 'all stories'} },
-        { path: ':id/edit', component: StoriesEdit, name: 'stories.edit', meta: {title: 'edit stories'} }
+        { path: '', component: load('StoriesAll'), name: 'stories.all', meta: {title: 'all stories'} },
+        { path: ':id/edit', component: load('StoriesEdit'), name: 'stories.edit', meta: {title: 'edit stories'} }
       ]
     },
-    { path: '*', component: NotFound, name: 'NotFound' }
+    { path: '*', component: load('NotFound'), name: 'NotFound' }
   ]
 })
 
