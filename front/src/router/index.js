@@ -33,15 +33,17 @@ import p263 from '@/components/p263'
 // import food from '@/components/food'
 // import NotFound from '@/components/NotFound'
 import Login from '@/components/Login'
-// import StoriesPage from '@/components/StoriesPage.vue'
-// import StoriesAll from '@/components/StoriesAll.vue'
-// import StoriesEdit from '@/components/StoriesEdit.vue'
 
 const ROUTER_INSTANCE = new Router({
   mode: 'history',
-  base: '/vue2_lp',
+  base: '/',
   routes: [
     { path: '/', component: Hello, name: 'hello', meta: {title: 'hhheeelllooo'} },
+    { path: '/moviec', component: load('MovieC'), name: 'moviec' },
+    { path: '/movier', component: load('MovieR'), name: 'movier', meta: {title: 'router call'} },
+    { path: '/movies', component: load('Movies'), name: 'movies', meta: {title: 'asdf'} },
+    { path: '/amovie', component: load('AjaxMovie'), name: 'amovie' },
+    { path: '/amovies', component: load('AjaxMovies'), name: 'amovies' },
     { path: '/p010', component: p010, name: 'p010' },
     { path: '/p022', component: p022, name: 'p022' },
     { path: '/p038', component: p038, name: 'p038' },
@@ -72,10 +74,10 @@ const ROUTER_INSTANCE = new Router({
   ]
 })
 
-console.log(ROUTER_INSTANCE)
+// console.log(ROUTER_INSTANCE)
 
 ROUTER_INSTANCE.beforeEach((to, from, next) => {
-  document.title = to.meta.title || 'vue2_lp'
+  document.title = to.meta.title || (to.name || 'A Vue Project')
   next()
 })
 
